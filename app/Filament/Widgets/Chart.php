@@ -19,7 +19,7 @@ class Chart extends ChartWidget
             'datasets'=>[
                 [
                     'label'=>'km',
-                    'data'=>Mileage::pluck('rided_km')->toArray()
+                    'data'=>Mileage::pluck('km')->toArray()
                 ]
                 ],
                 'labels'=>Mileage::pluck('fuel_filled')->toArray()

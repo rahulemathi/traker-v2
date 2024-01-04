@@ -21,7 +21,7 @@ class MileageResource extends Resource
 {
     protected static ?string $model = Mileage::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
 
     public static function form(Form $form): Form
     {
@@ -41,7 +41,7 @@ class MileageResource extends Resource
                 TextColumn::make('inital_km'),
                 TextColumn::make('rided_km'),
                 TextColumn::make('fuel_filled'),
-                TextColumn::make('mileage')->label('Mileage Per Liter')->suffix(' km')
+                TextColumn::make('km')->label('Mileage Per Liter')->suffix(' km')
             ])
             ->filters([
                 //

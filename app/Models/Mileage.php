@@ -10,7 +10,7 @@ class Mileage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['date','inital_km','rided_km','fuel_filled'];
+    protected $fillable = ['date','inital_km','rided_km','fuel_filled','km'];
 
     public function getMileageAttribute(){
         return number_format(($this->rided_km - $this->inital_km) / $this->fuel_filled);
@@ -18,5 +18,12 @@ class Mileage extends Model
     
     public function details(){
         return $this->hasMany(Detail::class);
+    }
+
+    public static function boot(){
+        parent::boot();
+        static::saving(function($mileage){
+            $mileage->km =round(($mileage->rided_km - $mileage->inital_km)/$mileage->fuel_filled,2);
+        });
     }
 }

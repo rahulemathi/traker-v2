@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('inital_km');
             $table->string('rided_km');
             $table->float('fuel_filled');
+            $table->string('km');
             $table->timestamps();
         });
     }
